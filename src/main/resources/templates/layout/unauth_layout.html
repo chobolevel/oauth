@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/init.css}"/>
+  <link rel="stylesheet" th:href="@{/css/unauth_layout.css}"/>
+  <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+  <script th:src="@{/js/jquery-validate.min.js}"></script>
+  <script th:src="@{/js/jquery-custom-validate.js}"></script>
+</head>
+<body>
+
+<div class="container">
+  <th:block th:replace="~{fragments/unauth/header :: headerFragment}"></th:block>
+  <section class="inner-container" layout:fragment="container"></section>
+  <th:block th:replace="~{fragments/unauth/footer :: footerFragment}"></th:block>
+</div>
+
+</body>
+</html>
