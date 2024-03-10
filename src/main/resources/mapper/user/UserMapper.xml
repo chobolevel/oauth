@@ -30,7 +30,7 @@
 
   <insert id="save" parameterType="User">
     INSERT INTO user (id, username, password, name, email, address, mobile, role)
-    VALUES (#{id}, #{username}, #{pasword}, #{name}, #{email}, #{address}, #{mobile}, #{role})
+    VALUES (#{id}, #{username}, #{password}, #{name}, #{email}, #{address}, #{mobile}, #{role})
   </insert>
 
   <select id="findOne" parameterType="User" resultMap="BaseResultMap">
