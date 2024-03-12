@@ -52,7 +52,19 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public void saveById(User user) throws ApiException {
+    if(user.getId() == null || user.getId().trim().isEmpty()) {
+      throw new ApiException(ApiExceptionType.MISSING_PARAMETER, "String", "id");
+    }
     userMapper.saveById(user);
+  }
+
+  @Override
+  public void checkDuplication(User user) throws ApiException {
+    //TODO 파라미터가 없는 경우 예외 처리 필요할듯
+    User findUser = userMapper.findOne(user);
+    if(findUser != null) {
+      throw new ApiException(ApiExceptionType.USER_ALREADY_EXISTS);
+    }
   }
 
 }

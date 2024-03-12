@@ -9,4 +9,6 @@ public interface UserService {
 
   void saveById(User user) throws ApiException;
 
+  void checkDuplication(User user) throws ApiException;
+
 }
