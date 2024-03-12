@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/sign")
 @RestController
 @RequiredArgsConstructor
-public class ApiSignController {
+public class SignRestController {
 
   private final UserService userService;
 
