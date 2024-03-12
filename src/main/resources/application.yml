@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/oauth
-    username: root
-    password: 1234
+    url: ENC(oO/8ulxa7gvEDNKcdTdjBIPKM39as1XrWDyySzlTAVnpX2XkyUEzaxqBiQu1IzTLuSLafdrYf6G218JkeVaM9aBkSRd3Ofjh0G10uiQUjpg=)
+    username: ENC(/Hng5Uu6q7wzripqScUSF/tJ3iWrgfQNWO1Pf+NnmFqo/Y4Vu2aN4Hl4ENTYTtJ9)
+    password: ENC(tPwJDBqm/Tw6QukEPW8IiPMlzCkOIXgVWyCtbM9OCGgIY4iKx1C1jJoEd25hpgSP)
 mybatis:
   type-aliases-package: com.injae.oauth.entity
   mapper-locations: classpath:mapper/**/*.xml
