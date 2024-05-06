@@ -19,23 +19,25 @@ public class User extends BaseEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
-  @Column
+  @Column(nullable = false)
   private String username;
-  @Column
+  @Column(nullable = false)
   private String password;
   @Column
   private String socialId;
-  @Column
+  @Column(nullable = false)
   private String loginType;
-  @Column
+  @Column(nullable = false)
   private String name;
-  @Column
+  @Column(nullable = false)
   private String phone;
-  @Column
+  @Column(nullable = false)
   private String address;
   @Column
   private String detailAddress;
-  @Column
+  @Column(nullable = false)
+  private String role;
+  @Column(nullable = false)
   private boolean isDelete;
 
 }
