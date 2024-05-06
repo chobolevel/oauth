@@ -1,0 +1,30 @@
+package com.injae.oauth.service.user.converter;
+
+import com.injae.oauth.dto.user.CreateUserInput;
+import com.injae.oauth.entity.User;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
+public class UserConverter {
+
+  private final BCryptPasswordEncoder passwordEncoder;
+
+  public User convert(CreateUserInput createUserInput) {
+    return User
+        .builder()
+        .username(createUserInput.getUsername())
+        .password(passwordEncoder.encode(createUserInput.getPassword()))
+        .socialId(createUserInput.getSocialId())
+        .loginType("GENERAL")
+        .name(createUserInput.getName())
+        .phone(createUserInput.getPhone())
+        .address(createUserInput.getAddress())
+        .detailAddress(createUserInput.getDetailAddress())
+        .role("ROLE_USER")
+        .isDelete(false)
+        .build();
+  }
+}
