@@ -3,6 +3,7 @@ package com.injae.oauth.controller.v1;
 import com.injae.oauth.dto.base.BaseResponse;
 import com.injae.oauth.dto.user.CreateUserInput;
 import com.injae.oauth.service.user.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class UserController {
   private final UserService userService;
 
   @PostMapping("/users")
-  public ResponseEntity<BaseResponse> addUser(@RequestBody CreateUserInput createUserInput) {
+  public ResponseEntity<BaseResponse> addUser(@RequestBody @Valid CreateUserInput createUserInput) {
     Long saveUserId = userService.create(createUserInput);
     return new ResponseEntity<>(BaseResponse.getInstance(HttpStatus.OK, saveUserId), HttpStatus.OK);
   }
