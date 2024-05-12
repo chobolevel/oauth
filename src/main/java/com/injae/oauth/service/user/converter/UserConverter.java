@@ -2,6 +2,7 @@ package com.injae.oauth.service.user.converter;
 
 import com.injae.oauth.dto.user.CreateUserInput;
 import com.injae.oauth.entity.User;
+import com.injae.oauth.enums.users.UserLoginType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ public class UserConverter {
         .username(createUserInput.getUsername())
         .password(passwordEncoder.encode(createUserInput.getPassword()))
         .socialId(createUserInput.getSocialId())
-        .loginType("GENERAL")
+        .loginType(UserLoginType.GENERAL)
         .name(createUserInput.getName())
         .phone(createUserInput.getPhone())
         .address(createUserInput.getAddress())

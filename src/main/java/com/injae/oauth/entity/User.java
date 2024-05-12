@@ -1,5 +1,6 @@
 package com.injae.oauth.entity;
 
+import com.injae.oauth.enums.users.UserLoginType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,8 @@ public class User extends BaseEntity {
   @Column
   private String socialId;
   @Column(nullable = false)
-  private String loginType;
+  @Enumerated(EnumType.STRING)
+  private UserLoginType loginType;
   @Column(nullable = false)
   private String name;
   @Column(nullable = false)
