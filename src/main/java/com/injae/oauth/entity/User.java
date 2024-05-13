@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.envers.Audited;
 
 @Entity
 @Data
@@ -15,6 +16,7 @@ import org.hibernate.annotations.SQLDelete;
 @Builder
 @Table(name = "users")
 @SQLDelete(sql = "UPDATE users SET is_delete = true WHERE id = ?")
+@Audited
 public class User extends BaseEntity {
 
   @Id
@@ -40,6 +42,6 @@ public class User extends BaseEntity {
   @Column(nullable = false)
   private String role;
   @Column(nullable = false)
-  private boolean isDelete;
+  private boolean deleted;
 
 }

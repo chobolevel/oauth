@@ -25,7 +25,7 @@ public class UserConverter {
         .address(createUserInput.getAddress())
         .detailAddress(createUserInput.getDetailAddress())
         .role("ROLE_USER")
-        .isDelete(false)
+        .deleted(false)
         .build();
   }
 }
