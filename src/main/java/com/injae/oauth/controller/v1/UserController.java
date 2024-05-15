@@ -3,6 +3,7 @@ package com.injae.oauth.controller.v1;
 import com.injae.oauth.dto.base.BaseResponse;
 import com.injae.oauth.dto.base.PaginationResponse;
 import com.injae.oauth.dto.user.CreateUserInput;
+import com.injae.oauth.dto.user.UpdateUserInput;
 import com.injae.oauth.dto.user.UserDetail;
 import com.injae.oauth.enums.users.UserRoleType;
 import com.injae.oauth.service.user.UserService;
@@ -31,7 +32,13 @@ public class UserController {
   @PostMapping("/users")
   public ResponseEntity<BaseResponse> addUser(@RequestBody @Valid CreateUserInput createUserInput) {
     Long saveUserId = userService.create(createUserInput);
-    return new ResponseEntity<>(BaseResponse.getInstance(HttpStatus.OK, saveUserId), HttpStatus.OK);
+    return new ResponseEntity<>(BaseResponse.getInstance(HttpStatus.CREATED, saveUserId), HttpStatus.CREATED);
+  }
+
+  @PutMapping("/users/{id}")
+  public ResponseEntity<BaseResponse> updateUser(@PathVariable Long id, @RequestBody @Valid UpdateUserInput updateUserInput) {
+    long updatedUserId = userService.update(id, updateUserInput);
+    return new ResponseEntity<>(BaseResponse.getInstance(HttpStatus.OK, updatedUserId), HttpStatus.OK);
   }
 
 }
