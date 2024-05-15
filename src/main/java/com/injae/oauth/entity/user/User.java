@@ -1,16 +1,16 @@
-package com.injae.oauth.entity;
+package com.injae.oauth.entity.user;
 
+import com.injae.oauth.entity.BaseEntity;
 import com.injae.oauth.enums.users.UserLoginType;
+import com.injae.oauth.enums.users.UserRoleType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.envers.Audited;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -40,7 +40,8 @@ public class User extends BaseEntity {
   @Column
   private String detailAddress;
   @Column(nullable = false)
-  private String role;
+  @Enumerated(EnumType.STRING)
+  private UserRoleType role;
   @Column(nullable = false)
   private boolean deleted;
 
