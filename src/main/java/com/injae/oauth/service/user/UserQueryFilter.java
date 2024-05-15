@@ -1,4 +1,4 @@
-package com.injae.oauth.entity.user;
+package com.injae.oauth.service.user;
 
 import com.injae.oauth.enums.users.UserRoleType;
 import com.querydsl.core.types.dsl.BooleanExpression;

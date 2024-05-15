@@ -1,6 +1,7 @@
-package com.injae.oauth.entity.user;
+package com.injae.oauth.service.user;
 
 import com.injae.oauth.dto.base.Pagination;
+import com.injae.oauth.entity.user.User;
 import com.injae.oauth.repository.user.UserCustomRepository;
 import com.injae.oauth.repository.user.UserRepository;
 import jakarta.transaction.Transactional;
