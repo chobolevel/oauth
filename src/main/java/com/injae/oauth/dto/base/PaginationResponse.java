@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class PaginationResponseDto<T> {
+public class PaginationResponse<T> {
   private long totalCount;
   private long skipCount;
   private long limitCount;

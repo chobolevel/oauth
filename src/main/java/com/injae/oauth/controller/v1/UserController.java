@@ -1,7 +1,7 @@
 package com.injae.oauth.controller.v1;
 
 import com.injae.oauth.dto.base.BaseResponse;
-import com.injae.oauth.dto.base.PaginationResponseDto;
+import com.injae.oauth.dto.base.PaginationResponse;
 import com.injae.oauth.dto.user.CreateUserInput;
 import com.injae.oauth.dto.user.UserDetail;
 import com.injae.oauth.enums.users.UserRoleType;
@@ -20,11 +20,11 @@ public class UserController {
   private final UserService userService;
 
   @GetMapping("/users")
-  public ResponseEntity<PaginationResponseDto<UserDetail>> getUsers(@RequestParam(required = false) String username,
-                                                                    @RequestParam(required = false) UserRoleType role,
-                                                                    @RequestParam(required = false) long skipCount,
-                                                                    @RequestParam(required = false) long limitCount) {
-    PaginationResponseDto<UserDetail> users = userService.getUsers(username, role, skipCount, limitCount);
+  public ResponseEntity<PaginationResponse<UserDetail>> getUsers(@RequestParam(required = false) String username,
+                                                                 @RequestParam(required = false) UserRoleType role,
+                                                                 @RequestParam(required = false, defaultValue = "0") long skipCount,
+                                                                 @RequestParam(required = false, defaultValue = "20") long limitCount) {
+    PaginationResponse<UserDetail> users = userService.getUsers(username, role, skipCount, limitCount);
     return new ResponseEntity<>(users, HttpStatus.OK);
   }
 

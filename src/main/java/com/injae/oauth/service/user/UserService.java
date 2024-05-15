@@ -1,7 +1,7 @@
 package com.injae.oauth.service.user;
 
 import com.injae.oauth.dto.base.Pagination;
-import com.injae.oauth.dto.base.PaginationResponseDto;
+import com.injae.oauth.dto.base.PaginationResponse;
 import com.injae.oauth.dto.user.CreateUserInput;
 import com.injae.oauth.dto.user.UserDetail;
 import com.injae.oauth.entity.user.User;
@@ -33,12 +33,12 @@ public class UserService {
   }
   
   // TODO CRUD 작성
-  public PaginationResponseDto<UserDetail> getUsers(String username, UserRoleType role, long skipCount, long limitCount) {
+  public PaginationResponse<UserDetail> getUsers(String username, UserRoleType role, long skipCount, long limitCount) {
     UserQueryFilter queryFilter = queryCreator.createQueryFilter(username, role);
     Pagination pagination = queryCreator.createPaginationFilter(skipCount, limitCount);
     List<User> userList = userFinder.search(queryFilter, pagination);
     long totalCount = userFinder.searchCount(queryFilter);
-    return new PaginationResponseDto<>(totalCount, pagination.getSkip(), pagination.getLimit(), userList.stream().map(userConverter::convert).toList());
+    return new PaginationResponse<>(totalCount, pagination.getSkip(), pagination.getLimit(), userList.stream().map(userConverter::convert).toList());
   }
 
 }
