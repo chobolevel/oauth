@@ -51,4 +51,9 @@ public class UserService {
     return userRepository.save(convertedUser).getId();
   }
 
+  public Long delete(Long id) {
+    userRepository.deleteById(id);
+    return id;
+  }
+
 }

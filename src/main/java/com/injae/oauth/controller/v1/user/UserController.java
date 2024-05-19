@@ -1,4 +1,4 @@
-package com.injae.oauth.controller.v1;
+package com.injae.oauth.controller.v1.user;
 
 import com.injae.oauth.dto.base.BaseResponse;
 import com.injae.oauth.dto.base.PaginationResponse;
@@ -39,6 +39,12 @@ public class UserController {
   public ResponseEntity<BaseResponse> updateUser(@PathVariable Long id, @RequestBody @Valid UpdateUserInput updateUserInput) {
     long updatedUserId = userService.update(id, updateUserInput);
     return new ResponseEntity<>(BaseResponse.getInstance(HttpStatus.OK, updatedUserId), HttpStatus.OK);
+  }
+
+  @DeleteMapping("/users/{id}")
+  public ResponseEntity<BaseResponse> deleteUser(@PathVariable Long id) {
+    Long deleteUserId = userService.delete(id);
+    return new ResponseEntity<>(BaseResponse.getInstance(HttpStatus.OK, deleteUserId), HttpStatus.OK);
   }
 
 }

@@ -15,7 +15,7 @@ import org.hibernate.envers.Audited;
 @AllArgsConstructor
 @Builder
 @Table(name = "users")
-@SQLDelete(sql = "UPDATE users SET is_delete = true WHERE id = ?")
+@SQLDelete(sql = "UPDATE users SET deleted = true WHERE id = ?")
 @Audited
 public class User extends BaseEntity {
 
